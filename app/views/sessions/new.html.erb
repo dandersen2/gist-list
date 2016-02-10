@@ -1,0 +1,56 @@
+<%= form_tag session_path do %>
+<fieldset>
+  <legend>Please log in</legend>
+  <div>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+  </div>
+
+  <div>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+  <div>
+    <%= submit_tag 'Log in' %>
+  </div>
+</fieldset>
+
+<% end %>
+
+<h1>Members</h1>
+  <h3>Login Here:</h3>
+    <form action='/sessions' method='post' >
+      <ul>
+        <li>
+          <label for='user[username]'>username:</label>
+          <input type='text' name='user[username]' placeholder='username' />
+        </li>
+        <li>
+          <label for='user[password]'>password:</label>
+          <input type='password' name='user[password]' placeholder='password' />
+        </li>
+      </ul>
+      <input type='submit' value='login'>
+    </form>
+
+  <h1>New to Dander News?</h1>
+  <h3>Register Here:</h3>
+    <form action='/users' method='post'>
+      <ul>
+        <li>
+          <label for='user[username]'>username:</label>
+          <input type='text' name='user[username]' placeholder='username' />
+        </li>
+        <li>
+          <label for='user[password]'>password:</label>
+          <input type='password' name='user[password]' placeholder='password' />
+        </li>
+      </ul>
+      <input type='submit' value='register'>
+    </form>
+  </div>
+
+  <div class='error_message'>
+  <% if @error %>
+  <%= @error %>
+  <% end %>
