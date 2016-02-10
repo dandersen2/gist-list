@@ -4,6 +4,7 @@ class CreateGroups < ActiveRecord::Migration
       t.integer  :creator_id, null: false
       t.string   :name, null: false
       t.string   :language
+      t.string   :description
 
       t.timestamps null: false
     end
