@@ -22,7 +22,7 @@
               <a href="/snippets/index">All Snippets</a> |
 
               <% if !!session[:user_id] && current_user %>
-                <%= link_to current_user.username's Profile', user_path(current_user) %>
+                <%= link_to "#{current_user.username}'s Profile", user_path(current_user) %>
                 <%= link_to 'Log out', session_path, method: :delete %>
               <% else %>
                 <%= link_to 'login', new_session_path %> or
