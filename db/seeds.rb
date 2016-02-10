@@ -12,25 +12,25 @@ end
 
 users = User.all
 
-Group.create!(name: 'RSpec', language: 'Ruby', description: Faker::Lorem.paragraph, user: users.sample)
-Group.create!(name: 'Active Record', language: 'Ruby', description: Faker::Lorem.paragraph, user: users.sample)
-Group.create!(name: 'MVC', language: 'Ruby', description: Faker::Lorem.paragraph, user: users.sample)
-Group.create!(name: 'Enumerables', language: 'Ruby', description: Faker::Lorem.paragraph, user: users.sample)
-Group.create!(name: 'Algorithms', language: 'Ruby', description: Faker::Lorem.paragraph, user: users.sample)
-Group.create!(name: 'Classes', language: 'Ruby', description: Faker::Lorem.paragraph, user: users.sample)
-Group.create!(name: 'Modules', language: 'Ruby', description: Faker::Lorem.paragraph, user: users.sample)
+Group.create!(name: 'RSpec', language: 'Ruby', description: Faker::Lorem.paragraph, creator: users.sample)
+Group.create!(name: 'Active Record', language: 'Ruby', description: Faker::Lorem.paragraph, creator: users.sample)
+Group.create!(name: 'MVC', language: 'Ruby', description: Faker::Lorem.paragraph, creator: users.sample)
+Group.create!(name: 'Enumerables', language: 'Ruby', description: Faker::Lorem.paragraph, creator: users.sample)
+Group.create!(name: 'Algorithms', language: 'Ruby', description: Faker::Lorem.paragraph, creator: users.sample)
+Group.create!(name: 'Classes', language: 'Ruby', description: Faker::Lorem.paragraph, creator: users.sample)
+Group.create!(name: 'Modules', language: 'Ruby', description: Faker::Lorem.paragraph, creator: users.sample)
 
-Group.create!(name: 'jQuery', language: 'Javascript', description: Faker::Lorem.paragraph, user: users.sample)
-Group.create!(name: 'OO', language: 'Javascript', description: Faker::Lorem.paragraph, user: users.sample)
-Group.create!(name: 'AJAX', language: 'Javascript', description: Faker::Lorem.paragraph, user: users.sample)
-Group.create!(name: 'JSON', language: 'Javascript', description: Faker::Lorem.paragraph, user: users.sample)
-Group.create!(name: 'Jasmine', language: 'Javascript', description: Faker::Lorem.paragraph, user: users.sample)
-Group.create!(name: 'For Loops', language: 'Javascript', description: Faker::Lorem.paragraph, user: users.sample)
+Group.create!(name: 'jQuery', language: 'Javascript', description: Faker::Lorem.paragraph, creator: users.sample)
+Group.create!(name: 'OO', language: 'Javascript', description: Faker::Lorem.paragraph, creator: users.sample)
+Group.create!(name: 'AJAX', language: 'Javascript', description: Faker::Lorem.paragraph, creator: users.sample)
+Group.create!(name: 'JSON', language: 'Javascript', description: Faker::Lorem.paragraph, creator: users.sample)
+Group.create!(name: 'Jasmine', language: 'Javascript', description: Faker::Lorem.paragraph, creator: users.sample)
+Group.create!(name: 'For Loops', language: 'Javascript', description: Faker::Lorem.paragraph, creator: users.sample)
 
 groups = Group.all
 
 50.times do
-  Snippet.create!(name: Faker::Lorem.words(2), content: Faker::Lorem.paragraph group: groups.sample)
+  Snippet.create!(name: Faker::Hipster.words(2).join(" ").capitalize, content: Faker::Lorem.paragraph, group: groups.sample)
 end
 
 

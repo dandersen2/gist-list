@@ -1,0 +1,18 @@
+<% if @snippet.errors.any? %>
+  <ul>
+    <% @snippet.errors.full_messages.each do |msg| %>
+       <li class="error"><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @snippet do |f| %>
+  <% [:name, :content].each do |field|  %>
+    <div>
+      <%= f.label field %>
+      <%= f.text_field field %>
+    </div>
+  <% end %>
+  <%= f.submit %>
+<% end %>
+

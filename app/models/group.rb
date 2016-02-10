@@ -6,7 +6,7 @@ class Group < ActiveRecord::Base
   validates  :creator, presence: true
   validates  :name, presence: true
 
-  # delegate :username, to: :creator, prefix:true
+  delegate :username, to: :creator, prefix:true
 
   def editable_by? user
     creator == user

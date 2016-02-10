@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @snippet = snippet.new
+    @snippet = Snippet.new
   end
 
   def new

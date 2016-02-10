@@ -1,0 +1,7 @@
+<h1 data-purpose="header">Groups</h1>
+Sort: <%= link_to 'Name', groups_path %> |
+<%= link_to 'Name', groups_path({order: :name}) %> |
+
+<ul id="group-index">
+  <%= render @groups %>
+</ul>
