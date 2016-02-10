@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :ensure_owner, only: [:edit, :update, :destroy]
 
   def index
-      @groups = Group.order(:name)
+    @groups = Group.order(:name)
   end
 
   def show
