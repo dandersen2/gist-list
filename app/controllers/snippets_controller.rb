@@ -4,6 +4,11 @@ class SnippetsController < ApplicationController
     @snippets =  Snippet.all
   end
 
+  def show
+    @snippet = Snippet.find(params[:id])
+    # binding.pry
+  end
+
   def create
     @group = Group.find(params[:group_id])
     if @group.editable_by? current_user

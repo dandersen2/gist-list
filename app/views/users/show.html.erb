@@ -1,0 +1,20 @@
+<h2> <%= @user.username %>'s User show page </h2>
+
+<div>
+<!--   <h3><= link_to 'Groups I Created', user_groups_path></h3> -->
+  <h3>Groups I Created</h3>
+  <% @groups.each do |group| %>
+    <div>
+       <%= render :partial => 'groups/group', layout: false, locals: {group: group}  %>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <h3>Snippets I've Made</h3>
+  <% @snippets.each do |snippet| %>
+    <div>
+      <p><%= link_to snippet.name, snippet_path(snippet)%></p>
+    </div>
+  <% end %>
+</div>

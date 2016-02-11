@@ -16,6 +16,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = current_user
+    @groups = current_user.groups
+    @snippets = current_user.snippets #(updated_at: :desc).limit(5)
+  end
+
   private
 
   def user_params
