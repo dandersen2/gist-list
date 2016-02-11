@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>GistList</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Gist-List</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <% if flash.any?  %>
+      <div id="flash-container">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, class: "flash-#{name}" %>
+        <% end %>
+      </div>
+    <% end %>
+    <div id="header">
+          <h1 id="header-title"><a href="/">Welcome to Gist-List!</a></h1>
+          <nav>
+              <a href="/groups/new">Make A New Group</a> |
+              <a href="/groups">All Groups</a> |
+              <%= link_to 'All Snippets', snippets_path%>
 
-<%= yield %>
+              <% if !!session[:user_id] && current_user %>
+                <%= link_to "#{current_user.username}'s Profile", user_path(current_user) %>
+                <%= link_to 'Log out', session_path, method: :delete %>
+              <% else %>
+                <%= link_to 'login', new_session_path %> or
+                <%= link_to 'register', new_user_path %>
+              <% end %>
 
-</body>
+          </nav>
+          <div id='error'>
+            <%if @error %>
+              <%= @error %>
+            <% end%>
+          </div>
+        </div>
+        <div id="body">
+          <%= yield %>
+        </div>
+        <div id="footer">
+        </div>
+      </div>
+  </body>
 </html>

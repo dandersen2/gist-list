@@ -1,0 +1,56 @@
+<h1>Members</h1>
+<h3>Login Here:</h3>
+<%= form_tag session_path do %>
+      <fieldset>
+        <legend>Please log in</legend>
+        <div>
+          <%= label_tag :email %>
+          <%= text_field_tag :email %>
+        </div>
+        <div>
+          <%= label_tag :password %>
+          <%= password_field_tag :password %>
+        </div>
+        <div>
+          <%= submit_tag 'Log in' %>
+        </div>
+      </fieldset>
+<% end %>
+
+<h1>New to Gist-List?</h1>
+<h3>Register Here:</h3>
+<%= form_for @user do |f| %>
+  <fieldset>
+    <legend>Please Register</legend>
+    <div>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </div>
+
+    <div>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+
+    <div>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+
+    <div>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  </fieldset>
+<% end %>
+
+<% if @user.errors.any? %>
+  <div class="error_report">
+    <% @user.errors.full_messages.each do |msg| %>
+      <%= msg %>
+    <% end %>
+  </div>
+<% end %>

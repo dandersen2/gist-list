@@ -1,0 +1,3 @@
+<% @snippets.each do |snippet| %>
+  <%= render partial: 'snippet', layout: false, locals: {snippet: snippet}  %>
+<% end %>

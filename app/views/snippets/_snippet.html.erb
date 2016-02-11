@@ -1,0 +1,17 @@
+<div class="snippet">
+  <div>
+   <h3><%= snippet.name %></h3>
+ </div>
+ <div class="author-strap">Snippet from <%=  snippet.group.creator_username %> at <%= std_format_date snippet.created_at %></div>
+ <div>
+   <pre><%= snippet.content %></pre>
+ </div>
+ <div>
+   <% if snippet.editable_by? current_user %>
+   <%= link_to 'Edit', edit_snippet_path(snippet) %>
+   <%= link_to 'Delete', snippet_path(snippet), method: :delete, data: { confirm: 'Are you sure?'} %>
+   <% end %>
+  </div>
+  <hr>
+  <hr>
+</div>

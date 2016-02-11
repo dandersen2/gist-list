@@ -1,0 +1,38 @@
+<h1><%= @group.name %></h1>
+<dl class="group-data">
+  <dt>Creator:</dt>
+  <dd><%= @group.creator_username %></dd>
+  <dt>language:</dt>
+  <dd><%= @group.language %></dd>
+  <dt>Description:</dt>
+  <dd><pre><%= @group.description%></pre></dd>
+</dl>
+
+<% if @group.editable_by? current_user %>
+<%= link_to 'Edit', edit_group_path(@group) %>
+<%= link_to 'Delete', group_path(@group), method: :delete, data: { confirm: 'Are you sure?'} %>
+<% end %>
+<hr>
+<hr>
+
+<h2>Snippets</h2>
+<%= render @group.snippets %>
+
+<% if @group.editable_by? current_user %>
+
+<h2>~Add A Snippet~</h2>
+  <%= form_for [@group, @snippet] do |f| %>
+     <div>
+       <%= f.label :name %>
+       <%= f.text_field :name%>
+     </div>
+     <div>
+       <%= f.label :content %>
+       <%= f.text_area :content, rows:10, cols:80 %>
+     </div>
+
+     <div>
+       <%= f.submit %>
+     </div>
+  <% end %>
+<% end %>
