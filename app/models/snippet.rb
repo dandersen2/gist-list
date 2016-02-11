@@ -9,11 +9,11 @@ class Snippet < ActiveRecord::Base
   validates  :content, presence: true
 
   def editable_by? user
-    creator == user
+    self.group.creator == user
   end
 
   def reviewable_by? user
-    creator != user
+    self.group.creator != user
   end
 
 end

@@ -5,13 +5,15 @@
   <dt>language:</dt>
   <dd><%= @group.language %></dd>
   <dt>Description:</dt>
-  <dd><%= @group.description%></dd>
+  <dd><pre><%= @group.description%></pre></dd>
 </dl>
 
 <% if @group.editable_by? current_user %>
 <%= link_to 'Edit', edit_group_path(@group) %>
 <%= link_to 'Delete', group_path(@group), method: :delete, data: { confirm: 'Are you sure?'} %>
 <% end %>
+<hr>
+<hr>
 
 <h2>Snippets</h2>
 <%= render @group.snippets %>

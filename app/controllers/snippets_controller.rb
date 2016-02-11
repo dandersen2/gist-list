@@ -9,6 +9,22 @@ class SnippetsController < ApplicationController
     # binding.pry
   end
 
+  def edit
+    @snippet = Snippet.find(params[:id])
+  end
+
+  def update
+    @snippet = Snippet.find(params[:id])
+    @group = @snippet.group
+    if @snippet.update(snippet_params)
+      flash.notice = 'snippet saved'
+      # redirect_to snippet_path(@snippet)
+      redirect_to group_path(@group)
+    else
+      render :edit
+    end
+  end
+
   def create
     @group = Group.find(params[:group_id])
     if @group.editable_by? current_user
@@ -17,6 +33,13 @@ class SnippetsController < ApplicationController
       flash.alert = 'You may only add snippets to your own groups'
       render 'groups/show'
     end
+  end
+
+  def destroy
+    @snippet = Snippet.find(params[:id])
+    @group = @snippet.group
+    @snippet.destroy
+    redirect_to group_path(@group)
   end
 
   def latest
