@@ -18,8 +18,8 @@
           <h1 id="header-title"><a href="/">Welcome to Gist-List!</a></h1>
           <nav>
               <a href="/groups/new">Make A New Group</a> |
-              <a href="/groups/index">All Groups</a> |
-              <a href="/snippets/index">All Snippets</a> |
+              <a href="/groups">All Groups</a> |
+              <%= link_to 'All Snippets', snippets_path%>
 
               <% if !!session[:user_id] && current_user %>
                 <%= link_to "#{current_user.username}'s Profile", user_path(current_user) %>

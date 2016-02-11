@@ -1,0 +1,21 @@
+<% if @group.errors.any? %>
+  <ul>
+    <% @group.errors.full_messages.each do |msg| %>
+       <li class="error"><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @group do |f| %>
+  <% [:name, :language].each do |field|  %>
+    <div>
+      <%= f.label field %>
+      <%= f.text_field field %>
+    </div>
+  <% end %>
+    <div>
+      <%= f.text_area :content, rows:10, cols:80 %>
+    </div>
+  <%= f.submit %>
+<% end %>
+
