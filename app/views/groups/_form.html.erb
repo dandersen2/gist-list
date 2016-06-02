@@ -7,7 +7,6 @@
 <% end %>
 
 <h3>Make a New Group</h3>
-<!-- Steven, Since I use this same form for the edit and new route, is there a good way i can display 'make a new group' if arriving from the 'new' route and 'Edit your Group' if arriving here from the 'edit' route? -->
 <%= form_for @group do |f| %>
   <% [:name, :language].each do |field|  %>
     <div>
